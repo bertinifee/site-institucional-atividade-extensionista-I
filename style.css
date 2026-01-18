@@ -1,0 +1,232 @@
+/* ==========================================
+   CONFIGURAÇÕES GERAIS E CORES
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --primary-color: #0B5BE3;
+    --light-grey: #f4f4f4;
+    --text-color: #333;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Quicksand", sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+
+.home-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================
+   HEADER E BANNER
+   ========================================== */
+header {
+    background: var(--primary-color);
+    color: var(--white);
+    position: relative;
+    width: 100%;
+    overflow: hidden; 
+}
+
+.banner {
+    width: 100%;
+    line-height: 0;
+    padding: 0;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================
+   NAVEGAÇÃO
+   ========================================== */
+.navbar {
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-list li a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px 25px;
+    display: block;
+    font-weight: 500;
+}
+
+/* ==========================================
+   HOME GRID (Lógica Mobile-First)
+   ========================================== */
+.home-grid {
+    display: flex;
+    flex-direction: column-reverse; 
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 40px 20px;
+}
+
+.home-text { flex: 1; }
+.home-image { flex: 1; width: 100%; }
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ==========================================
+   RESPONSIVIDADE MOBILE (ATÉ 768px)
+   ========================================== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        z-index: 1100;
+    }
+
+    .bar {
+        display: block;
+        width: 25px; height: 3px;
+        background: var(--white);
+        margin: 5px 0;
+    }
+
+    .navbar {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 260px; height: 100vh;
+        background: var(--primary-color);
+        z-index: 1000;
+        padding-top: 80px;
+    }
+
+    .navbar.active { 
+        display: block; 
+    }
+
+    .nav-list { 
+        flex-direction: column; 
+    }
+
+    body footer .footer-content p {
+        font-size: 10px;
+        margin-bottom: 4px;
+    }
+
+}
+
+/* ==========================================
+   RESPONSIVIDADE DESKTOP (ACIMA DE 769px)
+   ========================================== */
+@media (min-width: 769px) {
+    .menu-toggle { display: none; }
+
+    .home-grid {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .home-image {
+        order: -1; 
+    }
+}
+
+/* ==========================================
+   OUTROS COMPONENTES (LISTAGEM E CARROSSEL)
+   ========================================== */
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.carousel img {
+    width: 100%;
+    flex-shrink: 0;
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(11, 91, 227, 0.8);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+footer {
+    font-size: 12px;
+    text-align: center;
+    padding: 20px;
+    background: var(--light-grey);
+    border-top: 1px solid #ddd;
+    width: 100%;
+}
